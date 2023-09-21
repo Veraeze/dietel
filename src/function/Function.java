@@ -67,7 +67,7 @@ public class Function {
 
         if (secondInteger != 0) {return quotient;}
 
-        else {return 0;}
+        else { return 0;}
     }
     public static int factorOf(int integer){
 
@@ -98,11 +98,32 @@ public class Function {
 
     public static int factorialOf(int integer) {
         int factorial = 1;
+        boolean isNegativeNumber = integer < 0;
+        if (isNegativeNumber) return 0;
         int count = 1;
         while (count <= integer){
             factorial *= count;
             count++;
         }
         return factorial;
+    }
+    public static int multiply(int firstNumber, int secondNumber) {
+        int value = 1;
+        int result = 0;
+        boolean isNegativeNumber = secondNumber < 0;
+        boolean isNumberNegative = firstNumber < 0;
+        if (isNegativeNumber) {
+            for(int count = firstNumber; count >= 1; count--){
+            result = result + secondNumber;
+        }
+        };
+        if (isNumberNegative && isNegativeNumber){{ for (int count = (-secondNumber); count >= 1; count--)
+        result = result + firstNumber; value = -result;}
+        return value;}
+        else if(secondNumber > 0) for(int count = secondNumber; count >= 1; count--){
+            result = result + firstNumber;
+        }
+
+        return  result;
     }
 }
