@@ -7,12 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class IsPrimeNumberTest {
     @Test
     public void testIfIntegerIsAPrimeNumber() {
-        boolean number = Function.isPrimeNumber(5);
+        boolean number = Function.isPrimeNumber(2);
         assertTrue(number);
     }
     @Test
     public void testIfIntegerIsNotAPrimeNumber() {
-        boolean number = Function.isPrimeNumber(16);
+        boolean number = Function.isPrimeNumber(25);
         assertFalse(number);
     }
 }

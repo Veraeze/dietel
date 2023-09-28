@@ -42,14 +42,8 @@ public class Function {
     }
 
     public static boolean isPrimeNumber(int integer) {
-        int result = 0;
-        int count = 1;
-        while ( count <= integer){
-            if ( integer % count == 0){
-                result = result + 1 ;}
-            count = count + 1;
-        }
-        if (result == 2) {return true;}
+       int factor = factorOf(integer);
+        if (factor == 2) {return true;}
         else {return false;}
     }
 
@@ -83,6 +77,7 @@ public class Function {
     }
 
     public static boolean isSquare(int integer) {
+
         for (int count = 1; count <= integer; count++){
             if (integer / count == count){return true;}
         }
@@ -100,10 +95,10 @@ public class Function {
         int factorial = 1;
         boolean isNegativeNumber = integer < 0;
         if (isNegativeNumber) return 0;
-        int count = 1;
-        while (count <= integer){
+        int count = integer;
+        while (count >= 1){
             factorial *= count;
-            count++;
+            count--;
         }
         return factorial;
     }
@@ -126,4 +121,30 @@ public class Function {
 
         return  result;
     }
+
+    public static int sumDigits(long n) {
+        long first = n % 10;
+        long sec = n / 10;
+        long second = sec % 10;
+        long third = n / 100;
+        int sum;
+        if (third == 0) {sum = (int)(first + second);}
+        sum = (int) (first + second + third);
+        return sum;
+    }
+    public static int sumDigit(long n) {
+        int divide = (int)(n);
+        int remain;
+        int number = 1;
+        int sums = 0;
+        for (int count = 1;count <= 4 ; count ++) {
+            remain = divide % 10;
+            divide = (int) (n / 10);
+            if (remain == 0){number = number + 1;}
+            System.out.println(number);
+            sums = sums + remain;
+        }return sums;
+    }
 }
+
+
