@@ -11,6 +11,8 @@ public class Scores {
             System.out.println("Enter score: ");
             scores[count] = input.nextInt();
         }
+        System.out.print(scores[count] + " ");
+
         int largest = scores[0];
         for (count = 0; count < 10; count++){
             if (largest < scores[count]){

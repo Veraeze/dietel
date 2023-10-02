@@ -18,9 +18,5 @@ public class TaskTen {
             number++;
 
         System.out.println(userScores);
-//            String save = String.valueOf(number);
-//            sum = save.length() * number;
-//            System.out.print(sum,);
-
     }
 }

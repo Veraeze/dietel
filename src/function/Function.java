@@ -145,6 +145,101 @@ public class Function {
             sums = sums + remain;
         }return sums;
     }
+
+    public static int minOf(int[] array) {
+        int minimum = array[0];
+        for (int count = 1; count < array.length; count++){
+            if (minimum > array[count]) {minimum = array[count];}
+        }
+        return minimum;
+    }
+
+    public static int maxOf(int[] array){
+        int maximum = array[0];
+        for (int count = 1; count < array.length; count++) {
+            if (maximum < array[count]) maximum = array[count];
+        }
+        return maximum;
+    }
+
+    public static int sumOf(int[] array){
+        int total = 0;
+        for (int count = 0; count < array.length; count++) {
+            total += array[count] ;
+        }
+        return total;
+    }
+    public static  double averageOf(int[] array){
+        return sumOf(array) / (array.length*1.0);
+    }
+
+    public  static int maximumOf(int integer){
+        int maximum = 0;
+        for (int count = 1; count <= 10; count++) {
+            if (maximum < integer) maximum = integer;
+        }
+        return maximum;
+    }
+
+    public static int largestOf(int[] array){
+        int largest = array[0];
+        for (int count = 1; count < array.length; count++) {
+            if (largest < array[count]) largest = array[count];
+        }
+        return largest;
+    }
+
+    public static String reverse(int[] array){
+        String reverse = "";
+        for (int count = array.length - 1; count >= 0; count--){
+            String result = String.valueOf(array[count]);
+            reverse += result + " ";
+        }
+        return reverse;
+    }
+
+    public static boolean checkElement(int[] array, int element){
+        for (int count = array.length - 1; count >= 0; count--){
+            if (array[count] == element)return true;
+        }return false;
+    }
+
+    public static String oddPositions(int[] array){
+        String odd = " ";
+        for (int count = 1;count < array.length; count += 2) {
+            String number = String.valueOf(array[count]);
+            odd += number + " ";
+        }
+        return odd;
+    }
+
+    public static String evenPositions(int[] array){
+        String even = " ";
+        for (int count = 0;count < array.length; count += 2) {
+            String number = String.valueOf(array[count]);
+            even += number + " ";
+        }
+        return even;
+    }
+
+    public static int totalOf(int[] array) {
+        int total = 0;
+        for (int count : array) {
+            total += count;
+        }
+        return total;
+    }
+
+
+    public static boolean palindrome(String letters){
+        String letter = " ";
+        for (int count = letters.length() - 1 ; count >= 0; count--){
+            char word = letters.charAt(count);
+            letter += word;
+        }
+        return letter.equals(letters);
+    }
+
 }
 
 
