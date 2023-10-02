@@ -257,6 +257,16 @@ public class Function {
         } while (count < array.length);
         return sum;
     }
+
+    public static String concatenate(String[] letters, int[] numbers){
+        StringBuilder result = new StringBuilder("[");
+        for (int line = 0; line < letters.length; line++){
+            result.append(letters[line]).append(", ").append(numbers[line]);
+            if (line < numbers.length - 1)result.append(", ");
+        }
+        result.append("]");
+        return String.valueOf(result);
+    }
 }
 
 
