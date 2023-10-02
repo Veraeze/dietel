@@ -258,7 +258,22 @@ public class Function {
         return sum;
     }
 
-    public static String concatenate(String[] letters, int[] numbers){
+    public static String concatenateLists(String[] letters, int[] numbers){
+        StringBuilder firstResult = new StringBuilder("");
+        StringBuilder secondResult = new StringBuilder( "");
+        for (String count: letters){
+            firstResult.append(count).append(",");
+        }
+
+        for (int line = 0; line < numbers.length; line++){
+            secondResult.append(numbers[line]);
+            if (line < numbers.length - 1)secondResult.append(",");
+        }
+        return "[" + firstResult + secondResult + "]";
+    }
+
+
+    public static String combineLists(String[] letters, int[] numbers){
         StringBuilder result = new StringBuilder("[");
         for (int line = 0; line < letters.length; line++){
             result.append(letters[line]).append(", ").append(numbers[line]);
@@ -267,6 +282,7 @@ public class Function {
         result.append("]");
         return String.valueOf(result);
     }
+
 }
 
 
