@@ -132,19 +132,6 @@ public class Function {
         sum = (int) (first + second + third);
         return sum;
     }
-    public static int sumDigit(long n) {
-        int divide = (int)(n);
-        int remain;
-        int number = 1;
-        int sums = 0;
-        for (int count = 1;count <= 4 ; count ++) {
-            remain = divide % 10;
-            divide = (int) (n / 10);
-            if (remain == 0){number = number + 1;}
-            System.out.println(number);
-            sums = sums + remain;
-        }return sums;
-    }
 
     public static int minOf(int[] array) {
         int minimum = array[0];
@@ -222,17 +209,20 @@ public class Function {
         return even;
     }
 
-    public static int totalOf(int[] array) {
+    public static String runningTotal(int[] array) {
         int total = 0;
-        for (int count : array) {
-            total += count;
+        String result = " ";
+        for (int count = 0; count < array.length; count++) {
+            total += array[count];
+            String value = String.valueOf(total);
+            result += value + " ";
         }
-        return total;
+        return result;
     }
 
 
     public static boolean palindrome(String letters){
-        String letter = " ";
+        String letter = "";
         for (int count = letters.length() - 1 ; count >= 0; count--){
             char word = letters.charAt(count);
             letter += word;
@@ -240,6 +230,33 @@ public class Function {
         return letter.equals(letters);
     }
 
+    public static int forSum(int[] array){
+        int sum = 0;
+        for (int count : array) {
+            sum += array[count];
+        }
+        return sum;
+    }
+
+    public static int whileSum(int[] array){
+        int sum = 0;
+        int count = 0;
+        while (count < array.length) {
+            sum += array[count];
+            count = count + 1;
+        }
+        return sum;
+    }
+
+    public static int doWhileSum(int[] array){
+        int sum = 0;
+        int count = 0;
+        do {
+            sum += array[count];
+            count = count + 1;
+        } while (count < array.length);
+        return sum;
+    }
 }
 
 
