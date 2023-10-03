@@ -282,7 +282,20 @@ public class Function {
         result.append("]");
         return String.valueOf(result);
     }
+    public static String listOfDigits(int digit){
+        String number = String.valueOf(digit);
+        StringBuilder order = new StringBuilder("[");
+        int count = 0;
+        while (count < number.length()){
+            char letter = number.charAt(count);
+            order.append(letter);
+            if (count < number.length() - 1)order.append(",");
+            count += 1;
+            }
+        order.append("]");
+        return String.valueOf(order);
+        }
+    }
 
-}
 
 
