@@ -273,12 +273,15 @@ public class Function {
     }
 
 
-    public static String combineLists(String[] letters, int[] numbers){
+    public static String shuffle(char[] letters, int numbers){
         StringBuilder result = new StringBuilder("[");
-        for (int line = 0; line < letters.length; line++){
-            result.append(letters[line]).append(", ").append(numbers[line]);
-            if (line < numbers.length - 1)result.append(", ");
+        numbers = letters.length / 2;
+        int news = numbers;
+        for (int line = 0; line < numbers; line++){
+            result.append(letters[line]).append(", ").append(letters[news]);news = numbers + 1;
+            if (line < numbers - 1)result.append(", ");
         }
+        result.append(", ").append(letters[news + 1]);
         result.append("]");
         return String.valueOf(result);
     }
