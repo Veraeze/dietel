@@ -3,7 +3,9 @@ package array;
 public class RemoveDuplicate {
     public  int[] remove(int[] numbers){
         for (int i = 0; i < numbers.length; i++){
+            System.out.println(numbers[i]);
             for (int j = i + 1; j < numbers.length; j++){
+                System.out.println(numbers[j]);
                 if (numbers[i] == numbers[j]){
                     numbers[j] = 0;
                 }

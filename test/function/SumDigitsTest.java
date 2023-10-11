@@ -25,7 +25,7 @@ class SumDigitsTest {
 
     @Test
     public void sumOfFourDigits(){
-        int digit = Function.sumDigit(2341);
+        int digit = Function.sumDigits(2341);
         assertEquals(10, digit);
     }
 
