@@ -93,13 +93,13 @@ public class AtmCard {
         }
 
         System.out.printf("""
-*****************************************
-**Credit Card Type: %s
-**Credit Card Number: %d
-**Credit Card Digit Length: %d
-**Credit Card Validity Status: %s
-********************************************\s
-%n         \s
-""",cardType,cardNumber,card.length(),checkStatus);
+    *****************************************
+    **Credit Card Type: %s
+    **Credit Card Number: %d
+    **Credit Card Digit Length: %d
+    **Credit Card Validity Status: %s
+    ********************************************\s
+    %n         \s
+    """,cardType,cardNumber,card.length(),checkStatus);
     }
 }

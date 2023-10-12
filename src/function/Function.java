@@ -162,10 +162,17 @@ public class Function {
 
     public  static int maximumOf(int integer){
         int maximum = 0;
-        for (int count = 1; count <= 10; count++) {
+        for (int count = 1; count <= 5; count++) {
             if (maximum < integer) maximum = integer;
         }
         return maximum;
+    }
+    public  static int minimumOf(int integer){
+        int minimum = 0;
+        for (int count = 1; count <= 5; count++) {
+            if (minimum > integer) minimum = integer;
+        }
+        return minimum;
     }
 
     public static int largestOf(int[] array){
@@ -305,6 +312,14 @@ public class Function {
         numbers[secondIndex] = numbers[firstIndex] - numbers[secondIndex];
         numbers[firstIndex] = numbers[firstIndex] - numbers[secondIndex];
     return numbers;
+    }
+
+    public static int smallestOf(int[] array) {
+        int smallest = array[0];
+        for (int count = 1; count < array.length; count++) {
+            if (smallest > array[count]) smallest = array[count];
+        }
+        return smallest;
     }
 }
 
