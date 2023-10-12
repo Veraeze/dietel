@@ -1,33 +1,55 @@
 package array;
 
 import function.Function;
+import java.util.Arrays;
 
 public class MinMax {
 
+   public static int[] minMaxSum(int[] array){
+       int totalSum = Function.sumOf(array);
+       return new int[]{totalSum - Function.largestOf(array), totalSum - Function.smallestOf(array)};
+   }
+
     public static void main(String[] args) {
-
-        int[] numbers = {5, 3, 4, 1, 2};
-        int total = 0;
-        int large = Function.largestOf(numbers);
-        int small = Function.smallestOf(numbers);
-        int totall = MinMax.sumOf(numbers);
-
-        for (int avoid = 0; avoid < numbers.length; avoid++) {
-            total = MinMax.sumOf(numbers);
-            total = total - numbers[avoid];
-            System.out.println(total);
+        int[][] items = {{34, 23, 65}, {25, 67, 44, 68}};
+        for (int[] iterate: items){
+          System.out.println();
+            for (int item: iterate){
+                System.out.print(item + "    ");
+            }
         }
-
-        int minimum = totall - large;
-        int maximum = totall - small;
-        System.out.printf("The maximum is %d and the minimum is %d", maximum, minimum);
     }
 
-    public static int sumOf(int[] numbers){
-        int total = 0;
-        for (int index = 0; index < numbers.length; index++){
-            total += numbers[index];
-        }
-        return total;
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//for (int avoid = 0; avoid < numbers.length; avoid++) {
+//            total = MinMax.sumOf(numbers);
+//            total = total - numbers[avoid];
+//            System.out.println(total);
+//        }

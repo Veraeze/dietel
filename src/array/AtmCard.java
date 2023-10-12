@@ -19,6 +19,63 @@ public class AtmCard {
             digits.add(start);
             number++;}
 
+        int totalSum = getTotalSum(card, digits);
+        int firstIndex = digits.size()-1;
+        int secondIndex = digits.size()-2;
+        long checkIndex = digits.get(firstIndex);
+        long checkIndex2 = digits.get(secondIndex);
+        String cardType = "";
+        String checkStatus = "";
+
+        if (checkIndex == 5 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0) {
+            cardType = "MasterCard";
+            checkStatus = "Valid";
+        } else if (checkIndex == 5 && card.length() >= 13 && card.length() <= 16) {
+            cardType = "MasterCard";
+            checkStatus = "InValid";
+        }
+
+        if(checkIndex == 3 && checkIndex2 == 7 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0){
+            cardType = "American Express Card";
+            checkStatus = "Valid";
+        } else if(checkIndex == 3 && checkIndex2 == 7 && card.length() >= 13 && card.length() <= 16)  {
+            cardType = "American Express Card";
+            checkStatus = "InValid";
+        }
+
+        if(checkIndex == 6 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0){
+            cardType = "Discover Card";
+            checkStatus = "Valid";
+        } else if(checkIndex == 6 && card.length() >= 13 && card.length() <= 16) {
+            cardType = "Discover Card";
+            checkStatus = "InValid";
+        }
+
+        if (checkIndex == 4 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0 ){
+            cardType = "Visa Card";
+            checkStatus = "Valid";
+        } else if (checkIndex == 4 && card.length() >= 13 && card.length() <= 16) {
+            cardType = "American Express Card";
+            checkStatus = "InValid";
+        }
+
+        if(checkIndex < 3 || checkIndex > 6){
+            cardType = "Invalid Card";
+            checkStatus = "InValid";
+        }
+
+        System.out.printf("""
+    *****************************************
+    **Credit Card Type: %s
+    **Credit Card Number: %d
+    **Credit Card Digit Length: %d
+    **Credit Card Validity Status: %s
+    ********************************************\s
+    %n         \s
+    """,cardType,cardNumber,card.length(),checkStatus);
+    }
+
+    private static int getTotalSum(String card, ArrayList<Long> digits) {
         int oneDigit = 0;
         int twoDigits = 0;
         long doubleDigits = 0;
@@ -47,59 +104,6 @@ public class AtmCard {
             oddSum += result;
         }
 
-        int totalSum = evenSum + oddSum;
-        int firstIndex = digits.size()-1;
-        int secondIndex = digits.size()-2;
-        long checkIndex = digits.get(firstIndex);
-        long checkIndex2 = digits.get(secondIndex);
-        String cardType = "";
-        String checkStatus = "";
-
-        if (checkIndex == 5 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0) {
-            cardType = "MasterCard";
-            checkStatus = "Valid";
-        } else if (checkIndex == 5 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 != 0) {
-            cardType = "MasterCard";
-            checkStatus = "InValid";
-        }
-
-        if(checkIndex == 3 && checkIndex2 == 7 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0){
-            cardType = "American Express Card";
-            checkStatus = "Valid";
-        } else if(checkIndex == 3 && checkIndex2 == 7 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 != 0)  {
-            cardType = "American Express Card";
-            checkStatus = "InValid";
-        }
-
-        if(checkIndex == 6 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0){
-            cardType = "Discover Card";
-            checkStatus = "Valid";
-        } else if(checkIndex == 6 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 != 0) {
-            cardType = "Discover Card";
-            checkStatus = "InValid";
-        }
-
-        if (checkIndex == 4 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 == 0 ){
-            cardType = "Visa Card";
-            checkStatus = "Valid";
-        } else if (checkIndex == 4 && card.length() >= 13 && card.length() <= 16 && totalSum % 10 != 0) {
-            cardType = "American Express Card";
-            checkStatus = "InValid";
-        }
-
-        if(checkIndex < 3 || checkIndex > 6){
-            cardType = "Invalid Card";
-            checkStatus = "InValid";
-        }
-
-        System.out.printf("""
-    *****************************************
-    **Credit Card Type: %s
-    **Credit Card Number: %d
-    **Credit Card Digit Length: %d
-    **Credit Card Validity Status: %s
-    ********************************************\s
-    %n         \s
-    """,cardType,cardNumber,card.length(),checkStatus);
+        return evenSum + oddSum;
     }
 }
