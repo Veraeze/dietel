@@ -34,7 +34,7 @@ public class Nokia {
 
             case 2 -> messages();
 
-            case 3 -> System.out.println("Chat" );
+            case 3 -> chat();
 
             case 4 -> callRegister();
 
@@ -42,24 +42,23 @@ public class Nokia {
 
             case 6 -> settings();
 
-            case 7 -> System.out.println("Call Divert" );
+            case 7 -> callDivert();
 
-            case 8 -> System.out.println("Games" );
+            case 8 -> games();
 
-            case 9 -> System.out.println("Calculator" );
+            case 9 -> calculator();
 
-            case 10 -> System.out.println("Reminders" );
+            case 10 -> reminders();
 
             case 11 -> clock();
 
-            case 12 -> System.out.println("Profiles" );
+            case 12 -> profiles();
 
-            case 13 -> System.out.println("SIM services" );
+            case 13 -> simServices();
 
             default -> menu();
 
         }
-
     }
 
     public static void phoneBook() {
@@ -77,29 +76,32 @@ public class Nokia {
                 Press 8 -> Options
                 Press 9 -> Speed dials
                 Press 10 -> Voice tags
+                Press 11 -> main menu
                                 
                 """);
         int phoneBook = input.nextInt();
         switch (phoneBook) {
-            case 1 -> System.out.println("Search" );
+            case 1 -> search();
 
-            case 2 -> System.out.println("Service Nos" );
+            case 2 -> serviceNos();
 
-            case 3 -> System.out.println("Add name" );
+            case 3 -> addName();
 
-            case 4 -> System.out.println("Erase" );
+            case 4 -> erase();
 
-            case 5 -> System.out.println("Edit" );
+            case 5 -> edit();
 
-            case 6 -> System.out.println("Assign tone" );
+            case 6 -> assignTone();
 
-            case 7 -> System.out.println("Send b'card" );
+            case 7 -> sendBCard();
 
             case 8 -> options();
 
-            case 9 -> System.out.println("Speed dials" );
+            case 9 -> speedDials();
 
-            case 10 -> System.out.println("Voice tags" );
+            case 10 -> voiceTags();
+
+            case 11 -> menu();
 
             default -> phoneBook();
         }
@@ -112,13 +114,19 @@ public class Nokia {
                                 
                 Press 1 -> Type of view
                 Press 2 -> Memory status
+                Press 3 -> back
+                Press 4 -> main menu
                                 
                 """);
         int options = input.nextInt();
         switch (options) {
-            case 1 -> System.out.println("Type of view" );
+            case 1 -> typeOfView();
 
-            case 2 -> System.out.println("Memory status" );
+            case 2 -> memoryStatus();
+
+            case 3 -> phoneBook();
+
+            case 4 -> menu();
 
             default -> options();
         }
@@ -526,5 +534,187 @@ public class Nokia {
             default -> clock();
         }
         }
+    private static void chat() {
+        System.out.println("Chat");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+    private static void callDivert() {
+        System.out.println("Call Divert");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+    private static void simServices() {
+        System.out.println("SIM Services");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void profiles() {
+        System.out.println("Profiles");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void reminders() {
+        System.out.println("Reminders");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void calculator() {
+        System.out.println("Call Divert");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void games() {
+        System.out.println("Call Divert");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void voiceTags() {
+        System.out.println("Voice Tags");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void speedDials() {
+        System.out.println("Speed Dials");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void sendBCard() {
+        System.out.println("Send b'card");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void assignTone() {
+        System.out.println("Assign Tone");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void edit() {
+        System.out.println("Edit");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void erase() {
+        System.out.println("Erase");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+
+    }
+
+    private static void addName() {
+        System.out.println("Add Name");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void serviceNos() {
+        System.out.println("Service Nos");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void search() {
+        System.out.println("Search");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) phoneBook();
+        else if(back == 0) menu();
+    }
+
+    private static void memoryStatus() {
+        System.out.println("Memory status");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 2 -> previous
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) options();
+        if (back == 2) phoneBook();
+        else if(back == 0) menu();
+
+    }
+
+    private static void typeOfView() {
+        System.out.println("Type of view");
+        Scanner input = new Scanner(System.in);
+        System.out.println("""
+                Press 1 -> back
+                Press 2 -> previous
+                Press 0 -> main menu""");
+        int back = input.nextInt();
+        if (back == 1) options();
+        if (back == 2) phoneBook();
+        else if(back == 0) menu();
+
+    }
+
 
 }
