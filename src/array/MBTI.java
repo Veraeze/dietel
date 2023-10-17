@@ -1,17 +1,171 @@
 package array;
-
 import java.util.Scanner;
+
 public class MBTI {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
         System.out.println("What is your name");
         String name = input.nextLine();
-        String resultEI = extrovertedIntroverted();
-        String resultSN = sensingIntuitive();
-        String resultTF = thinkingFeeling();
-        String resultJP = judgingPerceptive();
-        System.out.printf("Hello %s you selected: %n", name);
-        switch (resultEI + resultSN + resultTF + resultJP) {
+        String[] questionEI = {"expend energy, enjoy groups", "conserve energy, enjoy one-on-one",
+                "more outgoing, think out loud", "more reserved, think to yourself",
+                "seek many tasks, public activities, interaction with others", "seek private, solitary activities with quiet to concentrate",
+                "external, communicative, express yourself", "internal, reticent, keep to yourself",
+                "active, initiate", "reflective, deliberate"};
+
+        String[] resultEI = new String[questionEI.length / 2];
+        StringBuilder storeEI = new StringBuilder();
+        for (int loopEI = 0; loopEI < questionEI.length; loopEI += 2) {
+            System.out.println("A. " + questionEI[loopEI] + "          B. " + questionEI[loopEI + 1]);
+            String answer = input.nextLine().toUpperCase();
+            while (!(answer.equals("A") || answer.equals("B"))) {
+                System.out.println("Expected A or B as response \n I know this is an error please try again");
+                System.out.println("A. " + questionEI[loopEI] + "          B. " + questionEI[loopEI + 1]);
+                answer = input.nextLine().toUpperCase();
+            }
+            resultEI[loopEI / 2] = answer;
+            if (answer.equals("A")){storeEI.append("A. ").append(questionEI[loopEI]).append("\n");}
+            if (answer.equals("B")){storeEI.append("B. ").append(questionEI[loopEI+1]).append("\n");}
+        }
+        int first = 0;
+        int second = 0;
+        for (String string : resultEI) {
+            if (string.equals("A")) {
+                first += 1;
+            } else if (string.equals("B")) {
+                second += 1;
+            }
+        }
+        String changeEI = storeEI.toString();
+        String[] changeEI2 = changeEI.split("\n");
+        String result1 = " ";
+        if (first > second) {result1 = "E";
+        } else if (second > first) {result1 = "I";}
+
+        String[] questionSN = {" Interpret literally", "look for meaning and possibilities",
+                "practical, realistic, experiential", "imaginative, innovative, theoretical",
+                "standard, usual, conventional", "different, novel, unique",
+                "focus on here-and-now", "look to the future, global perspective, big picture",
+                "facts, things, what is, philosophical", "ideas, dreams, what could be"};
+
+        String[] resultSN = new String[questionSN.length / 2];
+        StringBuilder storeSN = new StringBuilder();
+        for (int loopSN = 0; loopSN < questionSN.length; loopSN += 2) {
+            System.out.println("A. " + questionSN[loopSN] + "          B. " + questionSN[loopSN + 1]);
+            String answerSN = input.nextLine().toUpperCase();
+            while (!(answerSN.equals("A") || answerSN.equals("B"))) {
+                System.out.println("Expected A or B as response \n I know this is an error please try again");
+                System.out.println("A. " + questionSN[loopSN] + "          B. " + questionSN[loopSN + 1]);
+                answerSN = input.nextLine().toUpperCase();
+            }
+            resultSN[loopSN / 2] = answerSN;
+            if (answerSN.equals("A")){storeSN.append("A. ").append(questionSN[loopSN]).append("\n");}
+            if (answerSN.equals("B")){storeSN.append("B. ").append(questionSN[loopSN+1]).append("\n");}
+        }
+        int third = 0;
+        int fourth = 0;
+        for (String count : resultSN) {
+            if (count.equals("A")) {
+                third += 1;
+            } else if (count.equals("B")) {
+                fourth += 1;
+            }
+        }
+        String changeSN = storeSN.toString();
+        String[] changeSN2 = changeSN.split("\n");
+        String result2 = " ";
+        if (third > fourth) {result2 = "S";
+        } else if (fourth > third) {result2 = "N";}
+
+        String[] questionTF = {"logical, thinking, questioning", "empathetic, feeling, accommodating",
+                "candid, straight forward, frank", "tactful, kind, encouraging",
+                "firm, tend to criticize, hold the line", "gentle, tend to appreciate, conciliate",
+                "tough-minded, just", "tender-hearted, merciful",
+                "matter of fact, issue-oriented", "sensitive, people-oriented, compassionate"};
+
+        String[] resultTF = new String[questionTF.length / 2];
+        StringBuilder storeTF = new StringBuilder();
+        for (int loopTF = 0; loopTF < questionTF.length; loopTF += 2) {
+            System.out.println("A. " + questionTF[loopTF] + "          B. " + questionTF[loopTF + 1]);
+            String answerTF = input.nextLine().toUpperCase();
+            while (!(answerTF.equals("A") || answerTF.equals("B"))) {
+                System.out.println("Expected A or B as response \n I know this is an error please try again");
+                System.out.println("A. " + questionTF[loopTF] + "          B. " + questionTF[loopTF + 1]);
+                answerTF = input.nextLine().toUpperCase();
+            }
+            resultTF[loopTF / 2] = answerTF;
+            if (answerTF.equals("A")){storeTF.append("A. ").append(questionTF[loopTF]).append("\n");}
+            if (answerTF.equals("B")){storeTF.append("B. ").append(questionTF[loopTF+1]).append("\n");}
+        }
+        int fifth = 0;
+        int sixth = 0;
+        for (String loop : resultTF) {
+            if (loop.equals("A")) {
+                fifth += 1;
+            } else if (loop.equals("B")) {
+                sixth += 1;
+            }
+        }
+        String changeTF = storeTF.toString();
+        String[] changeTF2 = changeTF.split("\n");
+        String result3 = " ";
+        if (fifth > sixth) {result3 = "T";
+        } else if (sixth > fifth) {result3 = "F";}
+
+        String[] questionJP = {"organized, orderly", "flexible, adaptable",
+                "plan, schedule", "unplanned, spontaneous",
+                "regulated, structured", "easy-going, live and let live",
+                "preparation, plan ahead", "go with the flow, adapt as you go",
+                "control, govern", "latitude, freedom"};
+
+        String[] resultJP = new String[questionJP.length / 2];
+        StringBuilder storeJP = new StringBuilder();
+        for (int loopJP = 0; loopJP < questionJP.length; loopJP += 2) {
+            System.out.println("A. " + questionJP[loopJP] + "          B. " + questionJP[loopJP + 1]);
+            String answerJP = input.nextLine().toUpperCase();
+            while (!(answerJP.equals("A") || answerJP.equals("B"))) {
+                System.out.println("Expected A or B as response \n I know this is an error please try again");
+                System.out.println("A. " + questionJP[loopJP] + "          B. " + questionJP[loopJP + 1]);
+                answerJP = input.nextLine().toUpperCase();
+            }
+            resultJP[loopJP / 2] = answerJP;
+            if (answerJP.equals("A")){storeJP.append("A. ").append(questionJP[loopJP]).append("\n");}
+            if (answerJP.equals("B")){storeJP.append("B. ").append(questionJP[loopJP+1]).append("\n");}
+        }
+        int seventh = 0;
+        int eighth = 0;
+        for (String iterate : resultJP) {
+            if (iterate.equals("A")) {
+                seventh += 1;
+            } else if (iterate.equals("B")) {
+                eighth += 1;
+            }
+        }
+        String changeJP = storeJP.toString();
+        String[] changeJP2 = changeJP.split("\n");
+        String result4 = " ";
+        if (seventh > eighth) {result4 = "J";
+        } else if (eighth > seventh) {result4 = "P";}
+
+        System.out.printf("Hello %s You selected %n", name);
+        for (int count = 0; count < resultEI.length; count++) {
+            System.out.println(changeEI2[count]);}
+        System.out.println("The number of A selected: " + first + "\n" + "The number of B selected: " + second + "\n");
+
+        for (int count = 0; count < resultSN.length; count++) {
+            System.out.println(changeSN2[count]);}
+        System.out.println("The number of A selected: " + third + "\n" + "The number of B selected: " + fourth + "\n");
+
+        for (int count = 0; count < resultTF.length; count++) {
+            System.out.println(changeTF2[count]);}
+        System.out.println("The number of A selected: " + fifth + "\n" + "The number of B selected: " + sixth + "\n");
+
+        for (int count = 0; count < resultJP.length; count++) {
+            System.out.println(changeJP2[count]);}
+        System.out.println("The number of A selected: " + seventh + "\n" + "The number of B selected: " + eighth + "\n");
+
+
+        switch (result1 + result2 + result3 + result4) {
             case "INTJ" -> System.out.println("""
                     INTJ
                                         
@@ -81,7 +235,7 @@ public class MBTI {
                     They tend to approach life with deep thoughtfulness and imagination. Their inner vision, personal values, and a quiet,
                     principled version of humanism guide them in all things. Advocates (INFJs) may be the rarest personality type of all,
                     but they certainly leave their mark on the world. Idealistic and principled, they aren’t content to coast through life –
-                    they want to stand up and make a difference. For Advocate personalities, success doesn’t come from money or status but
+                    they want to stand up and make a difference. For Advocate personalities, success does not come from money or status but
                     from seeking fulfillment, helping others, and being a force for good in the world.
                     While they have lofty goals and ambitions, Advocates shouldn’t be mistaken for idle dreamers. People with this
                     personality type care about integrity, and they’re rarely satisfied until they’ve done what they know to be right.
@@ -147,7 +301,7 @@ public class MBTI {
                     what they say, and when they commit to doing something, they make sure to follow through.
                     This personality type makes up a good portion of the overall population, and while Logisticians may not be
                     particularly flashy or attention-seeking, they do more than their share to keep society on a sturdy, stable foundation.
-                    In their families and their communities, Logisticians often earn respect for their reliability, their practicality, 
+                    In their families and their communities, Logisticians often earn respect for their reliability, their practicality,
                     and their ability to stay grounded and logical, even in the most stressful situations.
                     """);
 
@@ -196,7 +350,7 @@ public class MBTI {
                     and their hearts to friends, loved ones, and neighbors.
                     This doesn’t mean that Consuls like everyone, or that they’re saints. But Consuls do believe in the power
                     of hospitality and good manners, and they tend to feel a sense of duty to those around them. Generous and reliable,
-                    people with this personality type often take it upon themselves in ways both large and small to hold their 
+                    people with this personality type often take it upon themselves in ways both large and small to hold their
                     families and their communities together.
                     """);
 
@@ -264,155 +418,4 @@ public class MBTI {
                     """);
         }
     }
-
-    public static String extrovertedIntroverted(){
-        Scanner input = new Scanner(System.in);
-
-        String[] questionEI = {"expend energy, enjoy groups", "conserve energy, enjoy one-on-one",
-                "more outgoing, think out loud", "more reserved, think to yourself",
-                "seek many tasks, public activities, interaction with others", "seek private, solitary activities with quiet to concentrate",
-                "external, communicative, express yourself", "internal, reticent, keep to yourself",
-                "active, initiate", "reflective, deliberate"};
-
-        String[] result = new String[questionEI.length /2];
-        StringBuilder store = new StringBuilder();
-        for (int loop = 0; loop < questionEI.length; loop+=2){
-            System.out.println("A. " + questionEI[loop] + "          B. " + questionEI[loop+1]);
-            String answer = input.nextLine().toUpperCase();
-            while (!(answer.equals("A") || answer.equals("B"))){
-                System.out.println("Expected A or B as response \n I know this is an error please try again");
-                System.out.println("A. " + questionEI[loop] + "          B. " + questionEI[loop+1]);
-                answer = input.nextLine().toUpperCase();
-            }
-            result[loop / 2] = answer;
-
-            if (answer.equals("A")){store.append("A. ").append(questionEI[loop]).append("\n");}
-            if (answer.equals("B")){store.append("B. ").append(questionEI[loop+1]).append("\n");}
-        }
-        String change = store.toString();
-        String[] change2 = change.split("\n");
-        int first = 0;
-        int second = 0;
-        for (int count = 0; count < result.length; count++) {
-            System.out.println(change2[count]);
-            if (result[count].equals("A")) {
-                first += 1;
-            } else if (result[count].equals("B")) {
-                second += 1;
-            }
-        }
-        System.out.println("The number of A is " + first + "\n" + "The number of B is " + second);
-
-        if (first > second) return "E";
-        return "I";
-    }
-
-    public static String sensingIntuitive(){
-        Scanner input = new Scanner(System.in);
-
-        String[] questionSN = {" Interpret literally", "look for meaning and possibilities",
-                "practical, realistic, experiential", "imaginative, innovative, theoretical",
-                "standard, usual, conventional", "different, novel, unique",
-                "focus on here-and-now", "look to the future, global perspective, big picture",
-                "facts, things, what is, philosophical", "ideas, dreams, what could be"};
-
-        String[] result = new String[questionSN.length /2];
-
-        for (int loop = 0; loop < questionSN.length; loop+=2){
-            System.out.println("A. " + questionSN[loop] + "          B. " + questionSN[loop+1]);
-            String answer = input.nextLine().toUpperCase();
-            while (!(answer.equals("A") || answer.equals("B"))){
-                System.out.println("Expected A or B as response \n I know this is an error please try again");
-                System.out.println("A. " + questionSN[loop] + "          B. " + questionSN[loop+1]);
-                answer = input.nextLine().toUpperCase();
-            }
-            result[loop / 2] = answer;
-        }
-        int third = 0;
-        int fourth = 0;
-        for (String s : result) {
-            if (s.equals("A")) {
-                third += 1;
-            } else if (s.equals("B")) {
-                fourth += 1;
-            }
-        }
-        System.out.println("The number of A is " + third + "\n" + "The number of B is " + fourth);
-        if (third > fourth) {return "S";}
-        return "N";
-    }
-
-    public static String thinkingFeeling(){
-        Scanner input = new Scanner(System.in);
-
-        String[] questionTF = {"logical, thinking, questioning", "empathetic, feeling, accommodating",
-                "candid, straight forward, frank", "tactful, kind, encouraging",
-                "firm, tend to criticize, hold the line", "gentle, tend to appreciate, conciliate",
-                "tough-minded, just", "tender-hearted, merciful",
-                "matter of fact, issue-oriented", "sensitive, people-oriented, compassionate"};
-
-        String[] result = new String[questionTF.length /2];
-
-        for (int loop = 0; loop < questionTF.length; loop+=2){
-            System.out.println("A. " + questionTF[loop] + "          B. " + questionTF[loop+1]);
-            String answer = input.nextLine().toUpperCase();
-            while (!(answer.equals("A") || answer.equals("B"))){
-                System.out.println("Expected A or B as response \n I know this is an error please try again");
-                System.out.println("A. " + questionTF[loop] + "          B. " + questionTF[loop+1]);
-                answer = input.nextLine().toUpperCase();
-            }
-            result[loop / 2] = answer;
-
-        }
-        int fifth = 0;
-        int sixth = 0;
-        for (String s : result) {
-            if (s.equals("A")) {
-                fifth += 1;
-            } else if (s.equals("B")) {
-                sixth += 1;
-            }
-        }
-        System.out.println("The number of A is " + fifth + "\n" + "The number of B is " + sixth);
-
-        if (fifth > sixth) return "T";
-        return "F";
-    }
-
-    public static String judgingPerceptive(){
-        Scanner input = new Scanner(System.in);
-
-        String[] questionJP = {"organized, orderly", "flexible, adaptable",
-                "plan, schedule", "unplanned, spontaneous",
-                "regulated, structured", "easy-going, live and let live",
-                "preparation, plan ahead", "go with the flow, adapt as you go",
-                "control, govern", "latitude, freedom"};
-
-        String[] result = new String[questionJP.length /2];
-
-        for (int loop = 0; loop < questionJP.length; loop+=2){
-            System.out.println("A. " + questionJP[loop] + "          B. " + questionJP[loop+1]);
-            String answer = input.nextLine().toUpperCase();
-            while (!(answer.equals("A") || answer.equals("B"))){
-                System.out.println("Expected A or B as response \n I know this is an error please try again");
-                System.out.println("A. " + questionJP[loop] + "          B. " + questionJP[loop+1]);
-                answer = input.nextLine().toUpperCase();
-            }
-            result[loop / 2] = answer;
-        }
-        int seventh = 0;
-        int eighth = 0;
-        for (String s : result) {
-            if (s.equals("A")) {
-                seventh += 1;
-            } else if (s.equals("B")) {
-                eighth += 1;
-            }
-        }
-        System.out.println("The number of A is " + seventh + "\n" + "The number of B is " + eighth);
-
-        if (seventh > eighth) return "J";
-        return "P";
-    }
-
 }
