@@ -151,30 +151,32 @@ public class Nokia {
                 """);
         int messages = input.nextInt();
         switch (messages) {
-            case 1 -> System.out.println("Write messages" );
+            case 1 -> writeMessages();
 
-            case 2 -> System.out.println("Inbox" );
+            case 2 -> inbox();
 
-            case 3 -> System.out.println("Outbox" );
+            case 3 -> outbox();
 
-            case 4 -> System.out.println("Picture messages" );
+            case 4 -> pictureMessages();
 
-            case 5 -> System.out.println("Templates" );
+            case 5 -> templates();
 
-            case 6 -> System.out.println("Smileys" );
+            case 6 -> smileys();
 
             case 7 -> messageSettings();
 
-            case 8 -> System.out.println("Info service" );
+            case 8 -> infoService();
 
-            case 9 -> System.out.println("Voice mailbox number" );
+            case 9 -> voiceMailboxNumber();
 
-            case 10 -> System.out.println("Service command editor" );
+            case 10 -> serviceCommandEditor();
 
             default -> messages();
 
         }
     }
+
+
 
     public static void messageSettings() {
         Scanner input = new Scanner(System.in);
@@ -208,11 +210,11 @@ public class Nokia {
                 """);
         int set1 = input.nextInt();
         switch (set1) {
-            case 1 -> System.out.println("Message centre number" );
-
-            case 2 -> System.out.println("Message sent as" );
-
-            case 3 -> System.out.println("Message validity" );
+//            case 1 -> message centre number" );
+//
+//            case 2 -> message sent as" );
+//
+//            case 3 -> message validity" );
 
             default -> set1();
         }
@@ -230,11 +232,11 @@ public class Nokia {
                 """);
         int common = input.nextInt();
         switch (common) {
-            case 1 -> System.out.println("Deliver reports" );
-
-            case 2 -> System.out.println("Reply via same centre" );
-
-            case 3 -> System.out.println("Character support" );
+//            case 1 -> deliverReports" );
+//
+//            case 2 -> replyViaSameCentre" );
+//
+//            case 3 -> characterSupport" );
 
             default -> common();
         }
@@ -715,6 +717,76 @@ public class Nokia {
         else if(back == 0) menu();
 
     }
+    private static void serviceCommandEditor() {
+        System.out.println("Service Command Editor");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
 
+    private static void voiceMailboxNumber() {
+        System.out.println("Voice Mailbox Number");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void infoService() {
+        System.out.println("Info Service");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void smileys() {
+        System.out.println("Smileys");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void templates() {
+        System.out.println("Templates");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void pictureMessages() {
+        System.out.println("Picture Messages");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void outbox() {
+        System.out.println("Outbox");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void inbox() {
+        System.out.println("Inbox");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
+
+    private static void writeMessages() {
+        System.out.println("Write Messages");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 -> back");
+        int back = input.nextInt();
+        if (back == 1) menu();
+    }
 
 }

@@ -401,7 +401,7 @@ public class MBTI {
                     Entrepreneurs interested for long. Entrepreneurs keep their conversation energetic, with a good dose of intelligence,
                     but they like to talk about what is – or better yet, to just go out and do it. Entrepreneurs leap before they look,
                     fixing their mistakes as they go, rather than sitting idle, preparing contingencies and escape clauses.
-                    """);
+                   """);
 
             case "ESFP" -> System.out.println("""
                     ESFP

@@ -1,11 +1,9 @@
 package array;
 
 public class RemoveDuplicate {
-    public  int[] remove(int[] numbers){
+    public  static int[] remove(int[] numbers){
         for (int i = 0; i < numbers.length; i++){
-            System.out.println(numbers[i]);
             for (int j = i + 1; j < numbers.length; j++){
-                System.out.println(numbers[j]);
                 if (numbers[i] == numbers[j]){
                     numbers[j] = 0;
                 }
@@ -15,7 +13,7 @@ public class RemoveDuplicate {
         numbers = stripArray(numbers, length);
         return  numbers;
     }
-    private int[] stripArray(int[] numbers, int length){
+    public static int[] stripArray(int[] numbers, int length){
         int[] array = new int[length];
         int count = 0;
         for (int i = 0; i < numbers.length; i++){
@@ -27,7 +25,7 @@ public class RemoveDuplicate {
         return array;
     }
 
-    private int countUniqueValues(int[] numbers){
+    public static int countUniqueValues(int[] numbers){
         int length = 0;
         for (int i = 0; i< numbers.length; i++){
             if (numbers[i] != 0){

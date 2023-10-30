@@ -1,5 +1,7 @@
 package function;
 
+import java.util.Arrays;
+
 public class Function {
     public static int rate(int percentage) {
 
@@ -41,11 +43,11 @@ public class Function {
         else {return false;}
     }
 
-    public static boolean isPrimeNumber(int integer) {
-       int factor = factorOf(integer);
-        if (factor == 2) {return true;}
-        else {return false;}
-    }
+//    public static boolean isPrimeNumber(int integer) {
+//       int factor = factorOf(integer);
+//        if (factor == 2) {return true;}
+//        else {return false;}
+//    }
 
     public static int subtract(int firstNumber, int secondNumber){
 
@@ -183,7 +185,7 @@ public class Function {
         return largest;
     }
 
-    public static String reverse(int[] array){
+    public static String reverseArray(String[] array){
         String reverse = "";
         for (int count = array.length - 1; count >= 0; count--){
             String result = String.valueOf(array[count]);
@@ -191,6 +193,7 @@ public class Function {
         }
         return reverse;
     }
+
 
     public static boolean checkElement(int[] array, int element){
         for (int count = array.length - 1; count >= 0; count--){
@@ -227,15 +230,6 @@ public class Function {
         return result;
     }
 
-
-    public static boolean palindrome(String letters){
-        String letter = "";
-        for (int count = letters.length() - 1 ; count >= 0; count--){
-            char word = letters.charAt(count);
-            letter += word;
-        }
-        return letter.equals(letters);
-    }
 
     public static int forSum(int[] array){
         int sum = 0;
