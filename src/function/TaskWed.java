@@ -1,7 +1,10 @@
-package array;
+package function;
+
+import array.RemoveDuplicate;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
+import static array.PrimeFactors.convertToArray;
 
 public class TaskWed {
     public static boolean palindrome(String letters) {
@@ -20,7 +23,7 @@ public class TaskWed {
                 }
             }
         }
-        return PrimeFactors.convertToArray(store);
+        return convertToArray(store);
     }
 
     public static String reverseStrings(String string) {
@@ -28,14 +31,14 @@ public class TaskWed {
         StringBuilder reverse = new StringBuilder();
         String result = "";
         int loop = 0;
-            for (int count = 0; count < splitString.length; count++) {
-                result = splitString[count];
-                reverse.append(reverseString(result)).append(" ");
-            }
+        for (int count = 0; count < splitString.length; count++) {
+            result = splitString[count];
+            reverse.append(reverseString(result)).append(" ");
+        }
         return String.valueOf(reverse);
     }
 
-    private static String reverseString(String result) {
+    public static String reverseString(String result) {
         StringBuilder reversed = new StringBuilder();
         for (int i = 0; i < result.length(); i++) {
             reversed.insert(0, result.charAt(i));
@@ -44,46 +47,61 @@ public class TaskWed {
     }
 
     public static ArrayList<Integer> keep = new ArrayList<>();
-    public static int[] dominant(int[] array){
 
-        for (int loop = 0; loop < array.length; loop++){
-            for (int count = loop + 1; count < array.length; count++){
+    public static int[] dominant(int[] array) {
+
+        for (int loop = 0; loop < array.length; loop++) {
+            for (int count = loop + 1; count < array.length; count++) {
                 if (array[count] > array[loop]) keep.add(array[count]);
-        }}
-        int [] value = PrimeFactors.convertToArray(keep);
+            }
+        }
+        int[] value = convertToArray(keep);
         int[] save = RemoveDuplicate.remove(value);
         return save;
     }
 
-    public static boolean isPalindrome(String integer){
-        if (!integer.matches("\\d+")) {System.out.println("invalid: Enter an integer");
-        return false;}
+    public static boolean isPalindrome(String integer) {
+        if (!integer.matches("\\d+")) {
+            System.out.println("invalid: Enter an integer");
+            return false;
+        }
         int integers = Integer.parseInt(integer);
         int first = (int) ((integers) / Math.pow(10, (countDigit(integers - 1) - 1)));
         int last = (integers) % 10;
         return first == last;
     }
 
-        public static int countDigit(int number)
-        {
-            int count = 0;
-            while(number != 0)
-            {
-                number = number / 10;
-                count = count + 1;
-            }
-            return count;
+    public static int countDigit(int number) {
+        int count = 0;
+        while (number != 0) {
+            number = number / 10;
+            count = count + 1;
         }
+        return count;
+    }
 
-        public static boolean indices(int number, int target, int start, int stop){
+    public static boolean indices(int number, int target, int start, int stop) {
         int value = countDigit(number);
         int[] array = new int[countDigit(number)];
-        for (int count = 0; count < value; count++){
+        for (int count = 0; count < value; count++) {
             array[count] = (int) ((number) / Math.pow(10, (countDigit(number) - 1)));
             if (array[count] < 0) number *= -1;
             number = (int) ((number) % Math.pow(10, (countDigit(number) - 1)));
         }
-                if (target>array[start] && target<array[stop]) return true;
-                return false;
-        }
+        return target > array[start] && target < array[stop];
     }
+    public static ArrayList<Integer> stores = new ArrayList<>();
+    public static ArrayList<Integer> convertIntToArray(int number) {
+
+
+
+        if (number != 0) {
+            int temp = number % 10;
+            number /= 10;
+            convertIntToArray(number);
+            stores.add(temp);
+        }
+        return stores;
+    }
+}
+

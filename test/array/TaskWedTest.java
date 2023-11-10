@@ -1,6 +1,6 @@
 package array;
 
-import function.Function;
+import function.TaskWed;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
