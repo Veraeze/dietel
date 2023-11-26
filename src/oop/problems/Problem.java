@@ -1,29 +1,30 @@
 package oop.problems;
 
 public class Problem {
-    private String name;
-    private Type type;
+    private final String name;
+    private final Type type;
     private static boolean isSolved;
-
-    public  boolean isSolved() {
-        return isSolved;
-    }
-
-    public void setIsSolved(boolean isSolved) {
-        Problem.isSolved = isSolved;
-    }
 
     public Problem(String name, Type type){
         this.name = name;
         this.type = type;
         this.setIsSolved(false);
     }
+
+    public void setIsSolved(boolean isSolved) {
+        Problem.isSolved = isSolved;
+    }
+
     public String getName(){
-    return name;
+        return name;
     }
 
     public Type getType() {
         return type;
+    }
+
+    public  boolean isSolved() {
+        return isSolved;
     }
 
     @Override
