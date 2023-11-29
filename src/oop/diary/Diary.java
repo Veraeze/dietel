@@ -3,8 +3,8 @@ package oop.diary;
 import oop.diary.exceptions.CannotBeFound;
 import oop.diary.exceptions.LockedDiary;
 import oop.diary.exceptions.WrongPassword;
+
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Diary {
     private final String password;
@@ -37,12 +37,15 @@ public class Diary {
         isLocked = true;
     }
 
-    public void createEntry(String title, String body) {
+    public Entry createEntry(String title, String body) {
         validateLock();
         sizeOfEntries++;
         Entry entry = new Entry(generateID(), title, body);
         entries.add(entry);
+        entry.date();
+        return entry;
     }
+
 
     private void validateLock() {
         if (isLocked) throw new LockedDiary("Diary is locked! Unlock to perform action");
@@ -71,8 +74,8 @@ public class Diary {
     public void updateEntry(int id, String title, String body){
         validateLock();
         Entry entry = findEntry(id);
-        entry.edit(title, body);
-        entries.set(findIndexOf(id), entry);
+        String message = entry.getBody() + " " + body;
+        entry.setBody(message);
     }
 
     public int findIndexOf(int id) {

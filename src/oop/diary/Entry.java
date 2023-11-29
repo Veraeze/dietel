@@ -17,8 +17,27 @@ public class Entry {
         return id;
     }
 
-    public void edit(String title, String body) {
-        this.title = title;
+
+    public void date(){
+         dateCreated = LocalDateTime.now();
+    }
+
+    public void setBody(String body){
         this.body = body;
+    }
+
+    public String getBody(){
+        return body;
+    }
+
+    public String toString(){
+        return String.format("""
+                            ==========================
+                            Entry ID: %d
+                            Title of entry: %s
+                            Body of entry: %s
+                            Date created: %s
+                            ==========================
+                             """, id, title, body, dateCreated);
     }
 }

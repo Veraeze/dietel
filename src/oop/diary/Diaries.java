@@ -25,10 +25,24 @@ public class Diaries {
     }
 
     public void delete(String username, String password) {
+        Diary deleteDiary = null;
         for (Diary diary: diaries) {
-            if (diary.getUsername().equals(username) && diary.getPassword().equals(password)) diaries.remove(diary);
-            else throw new DiaryDoesNotExist("Diary with this username and password");
+            if (diary.getUsername().equals(username) && diary.getPassword().equals(password)){
+                deleteDiary = diary;
+                break;
+            }
+        }
+        if (deleteDiary != null){
+            diaries.remove(deleteDiary);}
+       else{ validate(username, password);}
+    }
+
+    public void validate(String username, String password){
+        for (Diary diary: diaries) {
+            if (!diary.getUsername().equals(username) && !diary.getPassword().equals(password))
+                throw new DiaryDoesNotExist("Diary with this username or password does not exist");
         }
     }
+
 
 }
