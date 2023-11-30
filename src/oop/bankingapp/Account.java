@@ -11,16 +11,18 @@ public class Account {
     private final String pin;
     private final String number;
     private BigDecimal balance;
+    private String name;
 
     public Account(String name, String accountNumber, String pin){
         number = accountNumber;
         this.pin = pin;
+        this.name = name;
     }
 
 
     public void deposit(BigDecimal amount) {
-        validate(pin);
         validateInvalidAmount(amount);
+        if (balance == null) balance = BigDecimal.ZERO;
         balance = balance.add(amount);
     }
 
@@ -28,8 +30,8 @@ public class Account {
         validate(pin);
         return balance;
     }
-    private void validate(String pin){
-        if (pin != this.pin) throw new WrongPin("Incorrect pin");
+    void validate(String pin){
+        if (!this.pin.equals(pin)) throw new WrongPin("Incorrect pin");
     }
 
     public void withdraw(BigDecimal amount, String pin) {
@@ -38,16 +40,25 @@ public class Account {
         validateInsufficientFunds(amount);
         balance = balance.subtract(amount);
     }
-    private void validateInvalidAmount(BigDecimal amount){
+    private void validateInsufficientFunds(BigDecimal amount){
         if (balance == null) balance = BigDecimal.ZERO;
         if (this.balance.compareTo(amount) < 0) throw new InsufficientFunds("Insufficient funds");
     }
 
-    private void validateInsufficientFunds(BigDecimal amount){
-        if (amount.compareTo(BigDecimal.ZERO) < 0) throw new InvalidAmount("Invalid amount");
+    private void validateInvalidAmount(BigDecimal amount){
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) throw new InvalidAmount("Invalid amount");
     }
 
     public String getAccountNumber() {
         return number;
+    }
+
+    public String toString(){
+        return String.format("""
+                =============================
+                Account Name: %s
+                Account Number: %s
+                Account Balance: %s
+                """, name, number, balance);
     }
 }

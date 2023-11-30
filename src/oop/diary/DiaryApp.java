@@ -144,6 +144,10 @@ public class DiaryApp {
     private static void createDiary() {
         print("Enter username");
         String username = input(String.class);
+        if (username.matches("\\d+") || !username.matches("[a-z]+")){
+            System.out.println("error");
+           createDiary();
+        }
 
         print("Enter password");
         String password = input(String.class);
