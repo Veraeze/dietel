@@ -315,6 +315,14 @@ public class Function {
         }
         return smallest;
     }
+
+    public static int productOf(int[] array){
+        int product = 1;
+        for (int count = 0; count < array.length; count++) {
+            product *= array[count];
+        }
+        return product;
+    }
 }
 
 

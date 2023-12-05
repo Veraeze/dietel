@@ -54,9 +54,9 @@ public class Bank {
         account.withdraw(amount, pin);
     }
 
-    public void transfer(String senderAccountNumber, String recieverAccountNumber, BigDecimal amount, String pin) {
+    public void transfer(String senderAccountNumber, String receiverAccountNumber, BigDecimal amount, String pin) {
         Account senderAccount = findAccount(senderAccountNumber);
-        Account recieverAccount = findAccount(recieverAccountNumber);
+        Account recieverAccount = findAccount(receiverAccountNumber);
         senderAccount.withdraw(amount, pin);
         recieverAccount.deposit(amount);
     }

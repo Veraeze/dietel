@@ -1,3 +1,5 @@
+package practice;
+
 public class Pattern {
     public static void main(String[] args) {
         for (int rows = 1; rows <= 5; rows++) {

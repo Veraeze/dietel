@@ -46,7 +46,7 @@ public class BankApp {
 
         try {
             bank.closeAccountFor(accountNumber, pin);
-            System.out.println(bank.findAccount(accountNumber));
+            print("Account successfully closed");
             mainMenu();
         }
         catch (Exception exception){
