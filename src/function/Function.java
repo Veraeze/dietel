@@ -1,6 +1,6 @@
 package function;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Function {
     public static int rate(int percentage) {
@@ -38,9 +38,7 @@ public class Function {
     }
 
     public static boolean isEven(int integer) {
-        if (integer % 2 == 0) {return true;}
-
-        else {return false;}
+        return integer % 2 == 0;
     }
 
 //    public static boolean isPrimeNumber(int integer) {
@@ -74,8 +72,7 @@ public class Function {
                 factor = factor + 1 ;}
             count = count + 1;
         }
-        if (factor > 0) {return factor;}
-        else {return 0;}
+        return Math.max(factor, 0);
     }
 
     public static boolean isSquare(int integer) {
@@ -210,6 +207,30 @@ public class Function {
         return odd;
     }
 
+    public static String convert(ArrayList<String> value){
+        StringBuilder result = new StringBuilder();
+        for (int count = 0; count < value.size();count++){
+            result.append(value.get(count));
+        }
+        return result.toString();
+    }
+
+    public static int[] addTwoElements(int[] array){
+        int[] result;
+        if (array.length % 2 != 0) {
+            result = new int[(array.length / 2) + 1];
+            result[result.length - 1] = array[array.length - 1];
+        }
+        else result = new int[array.length / 2];
+        for (int count = 0, loop = 0; count < array.length;) {
+            result[loop] = array[count] + array[count + 1];
+            loop++;
+            count += 2;
+            if (count == array.length - 1) count++;
+        }
+        return result;
+    }
+
     public static String evenPositions(int[] array){
         String even = " ";
         for (int count = 0;count < array.length; count += 2) {
@@ -323,6 +344,7 @@ public class Function {
         }
         return product;
     }
+
 }
 
 
