@@ -3,37 +3,45 @@ package array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static array.PrimeFactors.convertToArray;
+
 public class HCF {
 
         public static void main(String[] args) {
-                int[] array = {8, 4, 12};
-                int[] newArray = {};
+                int[] array = {6, 3, 9};
                 ArrayList<Integer> factors = new ArrayList<>();
-                ArrayList<Integer> save = new ArrayList<>();
-                int max = minOf(array);
-                int loop = 0;
-                int count = 2;
-                        while (count <= max){
-                                while (array[loop] % count == 0){
-                                        System.out.println(array[loop]);
-                                        factors.add(count);
-                                        System.out.println(factors);
-                                        array[loop] = array[loop] / count;
-                                        System.out.println(array[loop]);
-                                        loop++;
-                                }if (factors.size() == array.length) save.add(factors.get(0));
-
+                int max = largestOf(array);
+                for (int count = 2; count < max;){
+                        if (divideArray(array, count)) {factors.add(count);
+                                if (divideArray(returnDividedArray(array, count), count)) factors.add(count);
                         }
-                System.out.println(factors);
-                System.out.println(save);
-
-        }
-        public static int minOf(int[] array) {
-                int minimum = array[0];
-                for (int count = 1; count < array.length; count++){
-                        if (minimum > array[count]) {minimum = array[count];}
+                        count++;
                 }
-                return minimum;
+                System.out.println(factors);
+        }
+                public static int[] returnHCF(int[] array){
+                        ArrayList<Integer> factors = new ArrayList<>();
+                        int max = largestOf(array);
+                        for (int count = 2; count < max;){
+                                if (divideArray(array, count)) {factors.add(count);
+                                        if (divideArray(returnDividedArray(array, count), count)) factors.add(count);
+                                }
+                                count++;
+                        }
+                        return convertToArray(factors);
+                }
+        public static int[] returnDividedArray(int[] array, int number){
+                for (int count = 2; count < array.length; count++){
+                        array[count] = array[count]/count;
+                }
+                return array;
+        }
+
+        public static boolean divideArray(int[] array, int number){
+                for (int count = 0; count < array.length; count++){
+                        if (array[count] % number != 0) return false;
+                }
+                return true;
         }
         public static int largestOf(int[] array){
                 int largest = array[0];

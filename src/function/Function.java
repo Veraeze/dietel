@@ -1,6 +1,10 @@
 package function;
 
+import oop.practice.Money;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Function {
     public static int rate(int percentage) {
@@ -345,6 +349,15 @@ public class Function {
         return product;
     }
 
+    public static BigDecimal forSum(List<Integer> prices){
+        int sum = 0;
+        int count = 0;
+        for (int price : prices) {
+            sum += prices.get(count);
+            count++;
+        }
+        return BigDecimal.valueOf(sum);
+    }
 }
 
 
