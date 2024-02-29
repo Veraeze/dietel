@@ -7,6 +7,8 @@ public class Notes {
      * It could have intermediate operators which could be zero or more.
      * All the operators/ operations are defined in the stream API as methods.
      * The terminal operator/ operation is mandatory.
+     * The stream created from the generate method is infinite.
+     * streams created from collections, arrays, directly are finite.
      *
      * Some intermediate operations/ methods include;
      * 1. filter()
